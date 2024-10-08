@@ -1,27 +1,26 @@
-function generateRandomInteger(min, max){
-    // qui devo usare Math.random
-    return Math.floor(Math.random() * (max - min + 1)) + min
-}
 
-let numVincente = generateRandomInteger(1, 100)
-let tentativi = 5
-let numInserito
-let indovinato = false
-
-while (tentativi > 0 && !indovinato){
-
-    numInserito = prompt("Indovina il numero vincente! Deve essere compreso tra 1 e 100.")
-    numInserito = parseInt(numInserito)
-
-    while(isNaN(numInserito) || numInserito < 1 || numInserito > 100){
-        numInserito = prompt("Numero non inserito correttamente. Deve essere compreso tra 1 e 100.")
+function generateRandomInteger(min = 1, max = 100) {
+    let number = Math.random()
+    number = number * (max - min + 1) + min
+    return Math.floor(number)
     }
 
-    numInserito = parseInt(numInserito)
+function sanitizeInput(input) {
+    input = input.trim
+    input = parseInt(input)
+    return input
+}
 
-    if (numInserito > numVincente) {
+function handleClick(event) {
+
+    guess = sanitizeInput(document.querySelector("#guess").value);
+    console.log(guess)
+    let tentativi = 5
+    let indovinato = false
+
+    if (guess > numVincente) {
         console.log("Troppo grande")
-    } else if (numInserito < numVincente) {
+    } else if (guess < numVincente) {
         console.log("Troppo piccolo")
     } else {
         console.log("Bravo, hai vinto. Il numero da indovinare era " + numVincente)
@@ -33,6 +32,16 @@ while (tentativi > 0 && !indovinato){
     if (tentativi === 0 && indovinato === false) {
         console.log("Mi dispiace, hai esaurito i tentativi. Il numero da indovinare era " + numVincente)
     }
-
+    
 }
+
+let numVincente = generateRandomInteger(1, 100)
+console.log (numVincente)
+
+let btn = document.querySelector("#guessBtn")
+btn.addEventListener("click", handleClick)
+
+
+
+
 
