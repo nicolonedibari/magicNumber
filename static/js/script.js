@@ -6,30 +6,28 @@ function generateRandomInteger(min = 1, max = 100) {
     }
 
 function sanitizeInput(input) {
-    input = input.trim
+    input = input.trim()
     input = parseInt(input)
     return input
 }
 
 function handleClick(event) {
 
-    guess = sanitizeInput(document.querySelector("#guess").value);
-    console.log(guess)
-    let tentativi = 5
-    let indovinato = false
+    numInserito = sanitizeInput(document.querySelector("#guess").value);
+    console.log(numInserito)
 
-    if (guess > numVincente) {
+    if (numInserito > numVincente) {
         console.log("Troppo grande")
-    } else if (guess < numVincente) {
+        tentativi = tentativi - 1
+    } else if (numInserito < numVincente) {
         console.log("Troppo piccolo")
+        tentativi = tentativi - 1
     } else {
         console.log("Bravo, hai vinto. Il numero da indovinare era " + numVincente)
-        indovinato = true
     }
 
-    tentativi = tentativi - 1
 
-    if (tentativi === 0 && indovinato === false) {
+    if (tentativi === 0) {
         console.log("Mi dispiace, hai esaurito i tentativi. Il numero da indovinare era " + numVincente)
     }
     
@@ -37,6 +35,7 @@ function handleClick(event) {
 
 let numVincente = generateRandomInteger(1, 100)
 console.log (numVincente)
+let tentativi = 5
 
 let btn = document.querySelector("#guessBtn")
 btn.addEventListener("click", handleClick)
