@@ -14,7 +14,6 @@ function sanitizeInput(input) {
 function handleClick(event) {
 
     numInserito = sanitizeInput(document.querySelector("#guess").value);
-    console.log(numInserito)
 
     if (numInserito > numVincente) {
         console.log("Troppo grande")
@@ -34,7 +33,6 @@ function handleClick(event) {
 }
 
 let numVincente = generateRandomInteger(1, 100)
-console.log (numVincente)
 let tentativi = 5
 
 let btn = document.querySelector("#guessBtn")
