@@ -13,21 +13,29 @@ function sanitizeInput(input) {
 
 function handleClick(event) {
 
-    numInserito = sanitizeInput(document.querySelector("#guess").value);
+    let numInserito = sanitizeInput(document.querySelector("#guess").value)
 
-    if (numInserito > numVincente) {
-        console.log("Troppo grande")
-        tentativi = tentativi - 1
-    } else if (numInserito < numVincente) {
-        console.log("Troppo piccolo")
-        tentativi = tentativi - 1
-    } else {
-        console.log("Bravo, hai vinto. Il numero da indovinare era " + numVincente)
+    let inputValido = true
+
+    if (isNaN(numInserito) || numInserito < 1 || numInserito > 100) {
+        console.log("Errore: Il numero deve essere compreso tra 1 e 100.")
+        inputValido = false
     }
 
+    if (inputValido === true) {
+        if (numInserito > numVincente) {
+            console.log("Troppo grande")
+            tentativi = tentativi - 1
+        } else if (numInserito < numVincente) {
+            console.log("Troppo piccolo")
+            tentativi = tentativi - 1
+        } else {
+            console.log("Bravo, hai vinto. Il numero da indovinare era " + numVincente)
+        }
 
-    if (tentativi === 0) {
-        console.log("Mi dispiace, hai esaurito i tentativi. Il numero da indovinare era " + numVincente)
+        if (tentativi === 0) {
+            console.log("Mi dispiace, hai esaurito i tentativi. Il numero da indovinare era " + numVincente)
+        }
     }
     
 }
