@@ -1,0 +1,10 @@
+@import "title.css";
+@import "bottone.css";
+@import "hero.css";
+@import "regole.css";
+@import "font.css";
+
+body{
+    margin: 0;
+    padding: 0;
+}

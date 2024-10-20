@@ -1,0 +1,29 @@
+
+.regole{
+    margin-top: 48px;
+    font-family: 'Inter';
+    font-size: 16px;
+    text-align: left;
+}
+
+#feedback{
+    font-family: 'Inter';
+    font-size: 16px;
+}
+
+#risultato{
+    font-family: 'Inter';
+    font-size: 16px;
+}
+
+#tentativi{
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.sottotitolo{
+    font-family: 'Inter';
+    font-size: 16px;
+    text-align: left;
+}

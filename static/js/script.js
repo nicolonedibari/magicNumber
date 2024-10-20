@@ -18,30 +18,29 @@ function handleClick(event) {
     let inputValido = true
 
     if (isNaN(numInserito) || numInserito < 1 || numInserito > 100) {
-        console.log("Errore: Il numero deve essere compreso tra 1 e 100.")
+        document.querySelector("#feedback").innerHTML = "Per favore, inserisci un numero valido tra 1 e 100."
         inputValido = false
     }
 
     if (inputValido === true) {
         if (numInserito > numVincente) {
-            console.log("Troppo grande")
-            tentativi = tentativi - 1
+            document.querySelector("#feedback").innerHTML = "Numero troppo alto!"
+            tentativi = tentativi + 1
         } else if (numInserito < numVincente) {
-            console.log("Troppo piccolo")
-            tentativi = tentativi - 1
+            document.querySelector("#feedback").innerHTML = "Numero troppo basso!"
+            tentativi = tentativi + 1
         } else {
-            console.log("Bravo, hai vinto. Il numero da indovinare era " + numVincente)
+            document.querySelector("#risultato").innerHTML = "Hai vinto! Il numero da indovinare era proprio " + numVincente
         }
 
-        if (tentativi === 0) {
-            console.log("Mi dispiace, hai esaurito i tentativi. Il numero da indovinare era " + numVincente)
-        }
+        document.querySelector("#tentativi").innerHTML = `Tentativi effettuati: ${tentativi}`
+
     }
     
 }
 
 let numVincente = generateRandomInteger(1, 100)
-let tentativi = 5
+let tentativi = 0
 
 let btn = document.querySelector("#guessBtn")
 btn.addEventListener("click", handleClick)
