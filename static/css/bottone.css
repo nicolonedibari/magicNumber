@@ -2,13 +2,16 @@
 .bottone #guessBtn{
     width: 350px;
     height: 60px;
-    background-color: #3AE3A8;
     font-weight: bold;
     font-size: 24px;
     margin-top: 18px;
     border: none;
     border-radius: 5px;
     border-color: #3AE3A8;
+}
+
+.bgBottone{
+    background-color: #3AE3A8;
 }
 
 .bottone #guess{

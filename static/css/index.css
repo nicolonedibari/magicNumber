@@ -8,3 +8,27 @@ body{
     margin: 0;
     padding: 0;
 }
+
+.greenBg{
+    background-color: #CCFFC5;
+}
+
+.yellowBg{
+    background-color: yellow
+}
+
+.redBg{
+    background-color: red
+}
+
+.transition{
+    transition: all 3s;
+}
+
+.purpleBg{
+    background-color: #BF4CE4;
+}
+
+.grayBg{
+    background-color: #E7DDFF;
+}
