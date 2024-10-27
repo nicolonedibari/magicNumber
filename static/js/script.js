@@ -30,6 +30,8 @@ function handleClick(event) {
             document.querySelector("#feedback").innerHTML = "Numero troppo basso!"
             tentativi = tentativi - 1
         } else {
+            document.querySelector("#feedback").innerHTML = ""
+            document.querySelector("#tentativi").innerHTML = ""
             document.querySelector("#risultato").innerHTML = "Hai vinto! Il numero da indovinare era proprio " + numVincente
         }
 
